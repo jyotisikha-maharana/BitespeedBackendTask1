@@ -1,0 +1,20 @@
+// Prisma schema will be defined here
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Contact {
+  id             Int      @id @default(autoincrement())
+  phoneNumber    String? 
+  email          String?
+  linkedId       Int?     // FK to Contact.id
+  linkPrecedence String   // "primary" | "secondary"
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  deletedAt      DateTime?
+}
