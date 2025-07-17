@@ -1,10 +1,10 @@
-import { Router } from 'express';
+import { Router, Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
 
 const router = Router();
 const prisma = new PrismaClient();
 
-router.post('/', async (req, res) => {
+router.post('/', async (req: Request, res: Response) => {
   const { email, phoneNumber } = req.body;
   if (!email && !phoneNumber) {
     return res.status(400).json({ error: 'At least one of email or phoneNumber is required.' });

@@ -1,11 +1,12 @@
 {
   "name": "jyoti",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "start": "ts-node src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "start": "prisma migrate deploy && node dist/index.js",
+    "postinstall": "prisma generate"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +19,8 @@
     "sqlite3": "^5.1.7",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3"
   }
 }
