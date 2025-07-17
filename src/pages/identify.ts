@@ -61,7 +61,7 @@ router.post('/', async (req: Request, res: Response) => {
     });
     return res.json({
       contact: {
-        primaryContatctId: newContact.id,
+        primaryContactId: newContact.id,
         emails: [newContact.email].filter(Boolean),
         phoneNumbers: [newContact.phoneNumber].filter(Boolean),
         secondaryContactIds: [],
@@ -130,7 +130,7 @@ router.post('/', async (req: Request, res: Response) => {
 
   res.json({
     contact: {
-      primaryContatctId: primaryContact.id,
+      primaryContactId: primaryContact.id,
       emails: emailsOrdered,
       phoneNumbers: phoneNumbersOrdered,
       secondaryContactIds,
